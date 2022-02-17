@@ -1,4 +1,5 @@
 import 'package:dans_milk/common/style.dart';
+import 'package:dans_milk/detail_screen.dart';
 import 'package:dans_milk/milk.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,11 @@ class MilkCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return GestureDetector(
+      onTap: (){
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => DetailScreen(detailMilk: milkDetail)));
+      },
+      child: Stack(
       alignment: Alignment.center,
       children: [
         Container(
@@ -74,6 +79,7 @@ class MilkCard extends StatelessWidget {
           ),
         )
       ],
+    ),
     );
   }
 }

@@ -1,134 +1,108 @@
 import 'package:dans_milk/milk.dart';
 import 'package:flutter/material.dart';
 
+import 'common/style.dart';
+
 class DetailScreen extends StatelessWidget {
-  final Milk detailMilk;
+  Milk detailMilk;
 
   DetailScreen({this.detailMilk});
 
   @override
   Widget build(BuildContext context) {
-
-     var size = MediaQuery.of(context).size;
-
-    final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Detail Milk'),
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            children: <Widget>[
-              ClipRRect(
-                borderRadius: BorderRadius.circular(16.0,),
-                child: Image.asset(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height / 1.5,
+            child: Stack(
+              children: [
+                Image.asset(
                   detailMilk.milkPhoto,
+                  width: MediaQuery.of(context).size.width,
                   fit: BoxFit.cover,
-                  height: itemHeight * 1.2,
                 ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 20.0, bottom: 15.0),
-                child: Text(
-                  detailMilk.milkName,
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontFamily: 'Playfair',
+                AppBar(
+                  iconTheme: IconThemeData(color: mainColor),
+                  backgroundColor: Colors.transparent,
+                  elevation: 0,
+                  centerTitle: true,
+                  title: Image.asset(
+                    'images/dans_milk_logo_text.png',
+                    width: 100,
                   ),
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 8.0),
-                    width: 150.0,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.grey,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.only(
-                            bottom: 8.0,
-                          ),
-                          child: Text(
-                            'Rasa',
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          detailMilk.milkTaste,
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                      ],
+              ],
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(30),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '${detailMilk.milkTaste} ${detailMilk.milkName}',
+                    style: TextStyle(
+                      color: mainDark,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 50,
                     ),
                   ),
-                  Container(
-                    padding: EdgeInsets.symmetric(vertical: 8.0),
-                    width: 150.0,
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.grey,
-                          width: 1,
-                        ),
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.only(
-                            bottom: 8.0,
-                          ),
-                          child: Text(
-                            'Ukuran',
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ),
-                        Text(
-                          detailMilk.bottleSize,
-                          style: TextStyle(
-                            fontSize: 20,
-                          ),
-                        ),
-                      ],
-                    ),
+                  SizedBox(
+                    height: 10,
                   ),
+                  Row(children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: mainDark,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      padding: EdgeInsets.only(
+                        left: 20,
+                        right: 20,
+                        top: 10,
+                        bottom: 10,
+                      ),
+                      child: Text(
+                        'Rp. ${detailMilk.milkPrice}',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: mainDark,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      padding: EdgeInsets.only(
+                         left: 20,
+                        right: 20,
+                        top: 10,
+                        bottom: 10,
+                      ),
+                      child: Text(
+                        detailMilk.bottleSize,
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ]),
                 ],
               ),
-              Container(
-                padding: EdgeInsets.symmetric(vertical: 8.0),
-                width: 315.0,
-                margin: EdgeInsets.only(
-                  top: 15.0,
-                  bottom: 15.0,
-                ),
-                decoration: BoxDecoration(
-                    border: Border.all(
-                      color: Colors.grey,
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(5)),
-                child: Text('Harga Rp. ${detailMilk.milkPrice}',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20,
-                    )),
-              ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
