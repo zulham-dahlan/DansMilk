@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Dans Milk',
       theme: ThemeData.light(),
-      home: SplashScreenPage(),
+      home: SplashScreen(),
     );
   }
 }
