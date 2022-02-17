@@ -1,6 +1,8 @@
 import 'package:dans_milk/common/style.dart';
 import 'package:dans_milk/detail_screen.dart';
 import 'package:dans_milk/milk.dart';
+import 'package:dans_milk/widget/milk_pager.dart';
+
 import 'package:dans_milk/widget/side_menu.dart';
 import 'package:flutter/material.dart';
 
@@ -19,8 +21,11 @@ class MainScreen extends StatelessWidget {
       drawer: Drawer(
         child: SideMenu(),
       ),
-      body: Container(
-        child: Text('Hello'),
+      body: Column(
+        children: [
+          MilkPager(),
+          
+        ],
       )
     );
   }

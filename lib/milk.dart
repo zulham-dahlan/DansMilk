@@ -12,7 +12,7 @@ class Milk {
       this.milkPrice});
 }
 
-var milkList = [
+List<Milk> milks = [
   Milk(
     milkName: 'Soy Milk',
     milkTaste: 'Coklat',
