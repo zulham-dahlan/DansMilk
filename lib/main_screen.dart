@@ -1,6 +1,7 @@
 import 'package:dans_milk/common/style.dart';
 import 'package:dans_milk/detail_screen.dart';
 import 'package:dans_milk/milk.dart';
+import 'package:dans_milk/widget/milk_list.dart';
 import 'package:dans_milk/widget/milk_pager.dart';
 
 import 'package:dans_milk/widget/side_menu.dart';
@@ -24,6 +25,12 @@ class MainScreen extends StatelessWidget {
       body: Column(
         children: [
           MilkPager(),
+          Container(
+            margin: EdgeInsets.only(top:30),
+            height: 300,
+            child: Expanded(child: MilkList(milks: listMilk),),
+          )
+          
           
         ],
       )

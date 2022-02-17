@@ -12,10 +12,10 @@ class Milk {
       this.milkPrice});
 }
 
-List<Milk> milks = [
+List<Milk> listMilk = [
   Milk(
     milkName: 'Soy Milk',
-    milkTaste: 'Coklat',
+    milkTaste: 'Chocolate',
     bottleSize: '250 ml',
     milkPhoto: 'images/kedelai_coklat.jpeg',
     milkPrice: 6000,
@@ -29,14 +29,14 @@ List<Milk> milks = [
   ),
   Milk(
     milkName: 'Soy Milk',
-    milkTaste: 'Strobery',
+    milkTaste: 'Strawberry',
     bottleSize: '250 ml',
     milkPhoto: 'images/kedelai_strobery.jpeg',
     milkPrice: 6000,
   ),
   Milk(
     milkName: 'Cow Milk',
-    milkTaste: 'Coklat',
+    milkTaste: 'Chocolate',
     bottleSize: '250 ml',
     milkPhoto: 'images/sapi_coklat.jpeg',
     milkPrice: 9000,
@@ -50,7 +50,7 @@ List<Milk> milks = [
   ),
   Milk(
     milkName: 'Cow Milk',
-    milkTaste: 'Strobery',
+    milkTaste: 'Strawberry',
     bottleSize: '250 ml',
     milkPhoto: 'images/sapi_strobery.jpeg',
     milkPrice: 9000,
