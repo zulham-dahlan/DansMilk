@@ -29,9 +29,7 @@ class MainScreen extends StatelessWidget {
             margin: EdgeInsets.only(top:30),
             height: 300,
             child: Expanded(child: MilkList(milks: listMilk),),
-          )
-          
-          
+          )   
         ],
       )
     );
